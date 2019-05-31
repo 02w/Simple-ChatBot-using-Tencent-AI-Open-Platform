@@ -16,17 +16,17 @@ def getParamWithSign(params, appkey):
         if params[key] != "":
             raw = raw + key + "=" + quote(params[key]) + "&"
     raw = raw + "AppKey=" + appkey
-    sign = md5(raw.encode("UTF-8"))
+    sign = md5(raw.encode("utf-8"))
     params["sign"] = sign.hexdigest().upper()
     return params
 
 
 def chat():
-    ''' 调用智能闲聊API，返回（问题，答案）组'''
+    ''' 调用智能闲聊API，返回（问题，答案）组 '''
     appkey = "your AppKey"
     appid = "your AppId"
     quest = input("我: ")
-    nonce = ''.join(random.sample(string.ascii_letters + string.digits, 10))
+    nonce = "".join(random.sample(string.ascii_letters + string.digits, 10))
     param_before = {
         "app_id": appid,
         "time_stamp": str(int(time())),
@@ -48,7 +48,7 @@ def getVoice(content):
     content = content.encode("utf-8")
     appkey = "your AppKey"
     appid = "your AppId"
-    nonce = ''.join(random.sample(string.ascii_letters + string.digits, 10))
+    nonce = "".join(random.sample(string.ascii_letters + string.digits, 10))
     param_before = {
         "app_id": appid,
         "time_stamp": str(int(time())),
